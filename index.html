@@ -1647,6 +1647,54 @@
     }
     .role-stack .reel { transition: none; }
   }
+
+    /* ============== AEVRA — whole-wallet gallery ============== */
+    .proj-av{
+      --av-violet:#c9a5ff; --av-cyan:#7fe3ff; --av-amber:#ffd9a0; --av-pink:#ff9ecf;
+      --av-grad:linear-gradient(115deg,var(--av-violet),var(--av-cyan) 44%,var(--av-amber) 78%,var(--av-pink));
+      background:
+        radial-gradient(120% 90% at 80% 8%, rgba(127,227,255,.10), transparent 55%),
+        radial-gradient(110% 90% at 8% 92%, rgba(201,165,255,.13), transparent 55%),
+        #0a0813;
+      color:#f4f2fb; padding:130px 0; position:relative; overflow:hidden;
+    }
+    .proj-av .eyebrow{ color:var(--av-cyan); }
+    .proj-av .eyebrow::before{ background:var(--av-cyan); opacity:.75; }
+    .proj-av .proj-name{ text-align:left; background:var(--av-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .proj-av .byline{ color:rgba(244,242,251,.52); }
+    .proj-av .proj-tagline{ color:#f4f2fb; }
+    .proj-av .proj-tagline em{ color:var(--av-cyan); font-style:italic; }
+    .proj-av .proj-sub{ color:rgba(244,242,251,.78); }
+    .av-feats{ display:flex; flex-wrap:wrap; gap:10px; margin:0 0 34px; }
+    .av-feats span{ font-family:var(--sans); font-size:12.5px; font-weight:600; letter-spacing:.02em; color:rgba(244,242,251,.82); padding:7px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04); }
+    .av-ctas{ display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
+    .proj-av .proj-cta{ background:var(--av-grad); background-size:160% 160%; color:#12101c; border:0; }
+    .proj-av .proj-cta:hover{ transform:translateY(-2px); box-shadow:0 16px 40px -12px rgba(127,227,255,.5); }
+    .av-secondary{ font-family:var(--sans); font-weight:600; font-size:14px; letter-spacing:.02em; color:var(--av-cyan); text-decoration:none; opacity:.9; transition:opacity .2s; }
+    .av-secondary:hover{ opacity:1; }
+    .av-stage{ position:relative; width:100%; max-width:440px; aspect-ratio:1/1; margin:0 auto; }
+    .av-glow{ position:absolute; inset:6%; border-radius:50%; background:radial-gradient(circle at 50% 42%, rgba(201,165,255,.34), rgba(127,227,255,.16) 46%, transparent 72%); filter:blur(26px); animation:avBreathe 8s ease-in-out infinite; }
+    .av-frame{ position:absolute; border-radius:8px; padding:8px; background:var(--av-grad); background-size:220% 220%; box-shadow:0 30px 60px -22px rgba(0,0,0,.75); animation:avFloat 9s ease-in-out infinite; }
+    .av-frame::after{ content:""; position:absolute; inset:-8px; border-radius:12px; background:var(--av-grad); background-size:220% 220%; filter:blur(22px); opacity:.4; z-index:-1; }
+    .av-art{ width:100%; height:100%; border-radius:3px; box-shadow:inset 0 0 0 1px rgba(0,0,0,.4); }
+    .av-f-main{ width:52%; aspect-ratio:1/1.16; left:26%; top:19%; z-index:3; --r:-4deg; }
+    .av-f-back1{ width:40%; aspect-ratio:1/1.16; left:1%; top:34%; z-index:2; --r:-9deg; opacity:.94; animation-delay:-2.5s; }
+    .av-f-back2{ width:38%; aspect-ratio:1/1.16; right:1%; top:7%; z-index:1; --r:7deg; opacity:.86; animation-delay:-5s; }
+    .av-art-a{ background:radial-gradient(120% 100% at 30% 20%,#3a2a6b,#0b0a12); }
+    .av-art-a::before{ content:""; display:block; width:100%; height:100%; border-radius:3px; background:conic-gradient(from 200deg at 58% 42%, rgba(127,227,255,.55), rgba(201,165,255,.45), rgba(255,217,160,.4), rgba(255,158,207,.4), rgba(127,227,255,.55)); mix-blend-mode:screen; opacity:.8; }
+    .av-art-b{ background:radial-gradient(120% 100% at 60% 30%,#0b3b4a,#08080e),linear-gradient(140deg, rgba(201,165,255,.5), transparent 60%); }
+    .av-art-c{ background:radial-gradient(120% 100% at 40% 70%,#4a1030,#0a0810),linear-gradient(40deg, rgba(255,217,160,.45), transparent 55%); }
+    .av-chip{ position:absolute; display:inline-flex; align-items:center; gap:7px; font-family:var(--sans); font-size:12px; font-weight:600; letter-spacing:.02em; color:#f4f2fb; padding:7px 12px; border-radius:999px; background:rgba(14,12,22,.72); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.16); box-shadow:0 10px 26px -12px rgba(0,0,0,.7); animation:avFloat 10s ease-in-out infinite; z-index:4; --r:0deg; }
+    .av-dot{ width:8px; height:8px; border-radius:50%; }
+    .av-c-sol{ left:-4%; top:15%; animation-delay:-1s; } .av-c-sol .av-dot{ background:linear-gradient(120deg,#9945ff,#14f195); }
+    .av-c-eth{ right:-6%; top:52%; animation-delay:-3.5s; } .av-c-eth .av-dot{ background:#7fe3ff; }
+    .av-c-tez{ left:12%; bottom:1%; animation-delay:-6s; } .av-c-tez .av-dot{ background:#2c7df6; }
+    .av-mark{ position:absolute; right:5%; bottom:7%; width:44px; height:44px; opacity:.92; z-index:4; filter:drop-shadow(0 6px 16px rgba(0,0,0,.5)); }
+    @keyframes avFloat{ 0%,100%{ transform:translateY(0) rotate(var(--r,0deg)); } 50%{ transform:translateY(-10px) rotate(var(--r,0deg)); } }
+    @keyframes avBreathe{ 0%,100%{ transform:scale(1); opacity:.85; } 50%{ transform:scale(1.06); opacity:1; } }
+    @media (max-width:900px){ .proj-av{ padding:90px 0; } .av-stage{ max-width:360px; } }
+    @media (max-width:600px){ .av-stage{ max-width:290px; } }
+    @media (prefers-reduced-motion: reduce){ .av-glow,.av-frame,.av-chip{ animation:none; } .av-frame{ transform:rotate(var(--r,0deg)); } }
 </style>
 </head>
 <body>
@@ -1664,6 +1712,7 @@
     </a>
     <div class="nav-links">
       <a href="#about">About</a>
+      <a href="#aevra">Aevra</a>
       <a href="#work">The work</a>
       <a href="#projects">Projects</a>
       <a href="#writing">Writing</a>
@@ -1748,81 +1797,45 @@
   </div>
 </section>
 
-<!-- ============== IMPRINT — brand identity studio ============== -->
-<section id="imprint-studio" class="proj-section proj-im">
+<!-- ============== AEVRA — whole-wallet gallery ============== -->
+<section id="aevra" class="proj-section proj-av">
   <div class="wrap">
     <div class="proj-row reveal">
       <!-- content: eyebrow + headline + body + CTAs (LEFT on desktop) -->
       <div class="proj-content">
-        <span class="eyebrow">Brand identity studio</span>
+        <span class="eyebrow">Whole-wallet gallery</span>
         <h3 class="proj-name" style="margin-top:18px;">
-          Imprint
-          <span class="byline">by Alan Geleff</span>
+          Aevra
+          <span class="byline">The collector&rsquo;s gallery</span>
         </h3>
         <p class="proj-tagline" style="margin-top:26px;">
-          Naming, identity systems, and brand worlds &mdash; built from <em>scratch</em>, built to <em>last</em>.
+          Your whole wallet, every chain, in one <em>beautiful</em> gallery.
         </p>
-        <p class="proj-sub">For founders who know exactly what they're building.</p>
-        <div class="im-ctas">
-          <a href="https://byimprint.studio/#start" class="im-cta">
-            Start a project
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        <p class="proj-sub">Connect read-only, then frame it, curate it, and share it. Solana, Ethereum, Tezos and more &mdash; together, and <em>provably</em> yours.</p>
+        <div class="av-feats">
+          <span>Omni-chain</span>
+          <span>3D framed viewer</span>
+          <span>Curated exhibits</span>
+        </div>
+        <div class="av-ctas">
+          <a href="https://aevra.art" target="_blank" rel="noopener" class="proj-cta">
+            Visit aevra.art
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </a>
-          <a href="https://byimprint.studio/#work" class="im-secondary">See the work &rarr;</a>
+          <a href="https://aevra.art" target="_blank" rel="noopener" class="av-secondary">Explore a gallery &rarr;</a>
         </div>
       </div>
-      <!-- visual: spiral mark + floating brand cards (RIGHT on desktop) -->
+      <!-- visual: floating framed pieces + chain chips + Aevra mark (RIGHT on desktop) -->
       <div class="proj-visual">
-        <div class="imprint-stage" aria-label="Imprint — brand identity studio">
-          <div class="imp-stack">
-            <!-- floating brand-deliverable cards (3D-transformed) -->
-            <div class="imp-frame imp-f-spread" aria-hidden="true">
-              <div class="imp-spread">
-                <div class="l">
-                  <span class="lbl">Typeface</span>
-                  <span class="big">Aa</span>
-                </div>
-                <div class="r">
-                  <span class="lbl">Voice</span>
-                  <div class="lines">
-                    <i></i><i></i><i></i><i></i><i></i><i></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="imp-frame imp-f-palette" aria-hidden="true">
-              <div class="imp-palette">
-                <div class="hd">
-                  <div class="lbl">Palette</div>
-                  <div class="nm">Warm Brown</div>
-                </div>
-                <div class="grid"><span></span><span></span><span></span><span></span></div>
-              </div>
-            </div>
-
-            <div class="imp-frame imp-f-logo" aria-hidden="true">
-              <div class="imp-logo">
-                <div class="mark">Loam</div>
-              </div>
-            </div>
-
-            <div class="imp-frame imp-f-card" aria-hidden="true">
-              <div class="imp-card">
-                <div class="top">Founder &middot; Studio</div>
-                <div class="name">Hana&nbsp;Olu</div>
-                <div class="ftr">est. <em>2026</em></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- central spiral mark — 2D sibling outside the 3D stack so its
-               z-index reliably sits above every floating card. -->
-          <div class="imp-mark" aria-hidden="true">
-            <div class="imp-mark-inner">
-              <img src="/art/imprint-mark.svg" alt="" />
-            </div>
-          </div>
+        <div class="av-stage" aria-label="Aevra — a whole-wallet, cross-chain NFT gallery">
+          <div class="av-glow" aria-hidden="true"></div>
+          <div class="av-frame av-f-back2" aria-hidden="true"><div class="av-art av-art-c"></div></div>
+          <div class="av-frame av-f-back1" aria-hidden="true"><div class="av-art av-art-b"></div></div>
+          <div class="av-frame av-f-main" aria-hidden="true"><div class="av-art av-art-a"></div></div>
+          <div class="av-chip av-c-sol" aria-hidden="true"><span class="av-dot"></span>Solana</div>
+          <div class="av-chip av-c-eth" aria-hidden="true"><span class="av-dot"></span>Ethereum</div>
+          <div class="av-chip av-c-tez" aria-hidden="true"><span class="av-dot"></span>Tezos</div>
+          <img class="av-mark" src="/art/aevra-mark.svg" alt="" aria-hidden="true">
         </div>
       </div>
     </div>
@@ -1927,6 +1940,87 @@
           <div class="fiend-orbit left">   <div><img src="art/fiends/death-icon.svg"   alt=""></div></div>
         </div>
         <h3 class="proj-name">Bad People</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== IMPRINT — brand identity studio ============== -->
+<section id="imprint-studio" class="proj-section proj-im">
+  <div class="wrap">
+    <div class="proj-row reveal">
+      <!-- content: eyebrow + headline + body + CTAs (LEFT on desktop) -->
+      <div class="proj-content">
+        <span class="eyebrow">Brand identity studio</span>
+        <h3 class="proj-name" style="margin-top:18px;">
+          Imprint
+          <span class="byline">by Alan Geleff</span>
+        </h3>
+        <p class="proj-tagline" style="margin-top:26px;">
+          Naming, identity systems, and brand worlds &mdash; built from <em>scratch</em>, built to <em>last</em>.
+        </p>
+        <p class="proj-sub">For founders who know exactly what they're building.</p>
+        <div class="im-ctas">
+          <a href="https://byimprint.studio/#start" class="im-cta">
+            Start a project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="https://byimprint.studio/#work" class="im-secondary">See the work &rarr;</a>
+        </div>
+      </div>
+      <!-- visual: spiral mark + floating brand cards (RIGHT on desktop) -->
+      <div class="proj-visual">
+        <div class="imprint-stage" aria-label="Imprint — brand identity studio">
+          <div class="imp-stack">
+            <!-- floating brand-deliverable cards (3D-transformed) -->
+            <div class="imp-frame imp-f-spread" aria-hidden="true">
+              <div class="imp-spread">
+                <div class="l">
+                  <span class="lbl">Typeface</span>
+                  <span class="big">Aa</span>
+                </div>
+                <div class="r">
+                  <span class="lbl">Voice</span>
+                  <div class="lines">
+                    <i></i><i></i><i></i><i></i><i></i><i></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="imp-frame imp-f-palette" aria-hidden="true">
+              <div class="imp-palette">
+                <div class="hd">
+                  <div class="lbl">Palette</div>
+                  <div class="nm">Warm Brown</div>
+                </div>
+                <div class="grid"><span></span><span></span><span></span><span></span></div>
+              </div>
+            </div>
+
+            <div class="imp-frame imp-f-logo" aria-hidden="true">
+              <div class="imp-logo">
+                <div class="mark">Loam</div>
+              </div>
+            </div>
+
+            <div class="imp-frame imp-f-card" aria-hidden="true">
+              <div class="imp-card">
+                <div class="top">Founder &middot; Studio</div>
+                <div class="name">Hana&nbsp;Olu</div>
+                <div class="ftr">est. <em>2026</em></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- central spiral mark — 2D sibling outside the 3D stack so its
+               z-index reliably sits above every floating card. -->
+          <div class="imp-mark" aria-hidden="true">
+            <div class="imp-mark-inner">
+              <img src="/art/imprint-mark.svg" alt="" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
