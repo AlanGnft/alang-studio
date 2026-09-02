@@ -1870,11 +1870,11 @@
 <section id="aevra" class="proj-section proj-av">
   <img class="av-markbg" src="/art/aevra-mark.svg" alt="" aria-hidden="true">
   <div class="av-depthfield" aria-hidden="true">
-    <div class="av-df av-df-1" data-d="30"><img src="/art/aevra/frame-2.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="av-df av-df-2" data-d="54"><img src="/art/aevra/frame-5.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="av-df av-df-3" data-d="18"><img src="/art/aevra/frame-4.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="av-df av-df-4" data-d="40"><img src="/art/aevra/frame-1.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="av-df av-df-5" data-d="24"><img src="/art/aevra/frame-3.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="av-df av-df-1" data-d="30"><img src="/art/aevra/frame-2.webp" alt="" loading="eager" decoding="async"></div>
+    <div class="av-df av-df-2" data-d="54"><img src="/art/aevra/frame-5.webp" alt="" loading="eager" decoding="async"></div>
+    <div class="av-df av-df-3" data-d="18"><img src="/art/aevra/frame-4.webp" alt="" loading="eager" decoding="async"></div>
+    <div class="av-df av-df-4" data-d="40"><img src="/art/aevra/frame-1.webp" alt="" loading="eager" decoding="async"></div>
+    <div class="av-df av-df-5" data-d="24"><img src="/art/aevra/frame-3.webp" alt="" loading="eager" decoding="async"></div>
   </div>
   <div class="wrap">
     <div class="proj-row reveal">
@@ -2663,7 +2663,7 @@
   var mx=0, my=0, ticking=false;
   function apply(){ ticking=false;
     var r=sec.getBoundingClientRect(), vh=window.innerHeight||1;
-    var prog=(r.top + r.height/2 - vh/2)/vh;
+    var prog=(r.top + r.height/2 - vh/2)/vh; if(prog>1.6)prog=1.6; else if(prog<-1.6)prog=-1.6;
     for(var i=0;i<items.length;i++){ var el=items[i], d=parseFloat(el.getAttribute('data-d'))||16;
       var py=-prog*d*2.6 + my*d*0.5, px=mx*d*0.8;
       el.style.transform='translate3d('+px.toFixed(1)+'px,'+py.toFixed(1)+'px,0)';
