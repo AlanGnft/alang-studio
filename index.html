@@ -1672,6 +1672,11 @@
     .proj-av .proj-cta:hover{ transform:translateY(-2px); box-shadow:0 16px 42px -12px rgba(255,46,154,.5); }
     .av-secondary{ font-family:var(--sans); font-weight:600; font-size:14px; letter-spacing:.02em; color:var(--av-magenta); text-decoration:none; opacity:.92; transition:opacity .2s; }
     .av-secondary:hover{ opacity:1; }
+    .proj-av .wrap{ position:relative; z-index:1; }
+    .av-wordmark{ width:min(360px,66%); }
+    .av-wordmark img{ width:100%; height:auto; display:block; }
+    .av-markbg{ position:absolute; right:-9%; top:50%; transform:translateY(-50%); width:min(640px,58%); opacity:.05; z-index:0; pointer-events:none; user-select:none; }
+    @media (max-width:900px){ .av-wordmark{ width:min(300px,72%); } .av-markbg{ width:min(460px,80%); right:-16%; opacity:.045; } }
     /* ---- visual stage: real art in faithful frame replicas ---- */
     .av-stage{ position:relative; width:100%; max-width:460px; aspect-ratio:1/1; margin:0 auto; }
     .av-glow{ position:absolute; inset:4%; border-radius:50%; background:radial-gradient(circle at 52% 42%, rgba(255,46,154,.28), rgba(160,59,224,.20) 44%, rgba(255,138,60,.10) 66%, transparent 74%); filter:blur(30px); animation:avBreathe 8s ease-in-out infinite; }
@@ -1804,17 +1809,19 @@
 
 <!-- ============== AEVRA — whole-wallet gallery ============== -->
 <section id="aevra" class="proj-section proj-av">
+  <img class="av-markbg" src="/art/aevra-mark.svg" alt="" aria-hidden="true">
   <div class="wrap">
     <div class="proj-row reveal">
       <!-- content (LEFT on desktop) -->
       <div class="proj-content">
         <span class="eyebrow">Whole-wallet gallery</span>
-        <h3 class="proj-name" style="margin-top:18px;">Aevra</h3>
-        <p class="proj-tagline" style="margin-top:24px;">Your whole wallet, every chain, in one <em>beautiful</em> gallery.</p>
-        <p class="proj-sub">Connect read-only, then frame it, curate it, and share it. Solana, Ethereum, Tezos and more &mdash; together, and <em>provably</em> yours.</p>
+        <div class="av-wordmark" style="margin-top:14px;"><img src="/art/aevra-wordmark.svg" alt="Aevra"></div>
+        <p class="proj-tagline" style="margin-top:26px;">Your whole multichain NFT collection in one <em>beautiful</em>, shareable experience.</p>
+        <p class="proj-sub">Connect it. Frame it. Curate it. Share it. Solana, Ethereum, Tezos and more &mdash; together, and <em>provably</em> yours.</p>
         <div class="av-feats">
           <span>Omni-chain</span>
           <span>3D framed viewer</span>
+          <span>Social feed</span>
           <span>Curated exhibits</span>
         </div>
         <div class="av-ctas">
@@ -1822,7 +1829,7 @@
             Visit aevra.art
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </a>
-          <a href="https://aevra.art" target="_blank" rel="noopener" class="av-secondary">Explore a gallery &rarr;</a>
+          <a href="https://aevra.art/feed" target="_blank" rel="noopener" class="av-secondary">Explore the feed &rarr;</a>
         </div>
       </div>
       <!-- visual: REAL art in Aevra's own frames, drifting chain chips + the Aevra mark (RIGHT on desktop) -->
