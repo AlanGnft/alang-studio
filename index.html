@@ -44,7 +44,7 @@
 <style>
   /* ---------------- design tokens ---------------- */
   :root {
-    --canvas: #0d0d18;
+    --canvas: #0b0912;
     --canvas-2: #14142a;
     --canvas-3: #1d1d36;
     --ink: #f0f0f0;
@@ -52,9 +52,11 @@
     --ink-3: #7a7a8c;
     --rule: rgba(255,255,255,0.08);
     --rule-2: rgba(255,255,255,0.14);
-    --gold: #e0b240;
-    --gold-2: #f1c75a;
-    --gold-soft: rgba(224, 178, 64, 0.14);
+    --accent: #c8fb50;          /* lime — new site accent (from the banner) */
+    --accent-2: #dcff85;
+    --accent-soft: rgba(200, 251, 80, 0.13);
+    --teal: #17635b;
+    --purple: #3a1a4a;
     --lime: #c8fb50;
     --crimson: #dc2626;
     --navy-bp: #0a1a3a;
@@ -67,7 +69,12 @@
   * { box-sizing: border-box; }
   html, body {
     margin: 0; padding: 0;
-    background: var(--canvas);
+    background:
+      radial-gradient(120% 85% at 0% 0%, rgba(23,99,91,0.42) 0%, transparent 52%),
+      radial-gradient(120% 90% at 100% 100%, rgba(58,26,74,0.55) 0%, transparent 55%),
+      radial-gradient(80% 60% at 100% 0%, rgba(58,26,74,0.22) 0%, transparent 60%),
+      var(--canvas);
+    background-attachment: fixed;
     color: var(--ink);
     font-family: var(--sans);
     font-size: 16px;
@@ -84,7 +91,7 @@
       var(--canvas);
     min-height: 100vh;
   }
-  ::selection { background: var(--gold); color: #0a0a14; }
+  ::selection { background: var(--accent); color: #0a0a14; }
   a { color: inherit; text-decoration: none; }
   img { max-width: 100%; display: block; }
   button { font-family: inherit; }
@@ -102,7 +109,7 @@
     font-weight: 600;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--accent);
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -110,7 +117,7 @@
   .eyebrow::before {
     content: "";
     width: 28px; height: 1px;
-    background: var(--gold);
+    background: var(--accent);
     opacity: 0.8;
   }
 
@@ -140,7 +147,7 @@
   }
   .nav-mark .dot {
     width: 8px; height: 8px; border-radius: 50%;
-    background: var(--gold);
+    background: var(--accent);
     box-shadow: 0 0 16px rgba(224,178,64,0.6);
     position: relative;
     flex-shrink: 0;
@@ -154,7 +161,7 @@
     top: 50%; left: 50%;
     width: 100%; height: 100%;
     border-radius: 50%;
-    border: 1px solid var(--gold);
+    border: 1px solid var(--accent);
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
     pointer-events: none;
@@ -199,7 +206,7 @@
   }
   .hero-byline .gold-dot {
     width: 6px; height: 6px; border-radius: 50%;
-    background: var(--gold); opacity: 0.85;
+    background: var(--accent); opacity: 0.85;
   }
   .hero-byline em { color: var(--ink-2); font-style: normal; }
 
@@ -215,7 +222,7 @@
   .hero-name em {
     font-style: italic;
     font-weight: 300;
-    color: var(--gold);
+    color: var(--accent);
     font-variation-settings: "SOFT" 100;
   }
 
@@ -243,7 +250,7 @@
     display: flex; align-items: center;
   }
   .role-stack .item::after {
-    content: "."; color: var(--gold); margin-left: 4px;
+    content: "."; color: var(--accent); margin-left: 4px;
   }
 
   .hero-tag {
@@ -269,11 +276,11 @@
     cursor: pointer;
     transition: all 0.25s var(--ease);
   }
-  .btn:hover { background: rgba(224,178,64,0.10); border-color: rgba(224,178,64,0.45); color: var(--gold-2); }
+  .btn:hover { background: rgba(224,178,64,0.10); border-color: rgba(224,178,64,0.45); color: var(--accent-2); }
   .btn.primary {
-    background: var(--gold); color: #14140a; border-color: var(--gold);
+    background: var(--accent); color: #14140a; border-color: var(--accent);
   }
-  .btn.primary:hover { background: var(--gold-2); border-color: var(--gold-2); color: #14140a; }
+  .btn.primary:hover { background: var(--accent-2); border-color: var(--accent-2); color: #14140a; }
   .btn .ic { width: 16px; height: 16px; }
 
   .scroll-hint {
@@ -298,7 +305,7 @@
     z-index: 5;
     text-shadow: 0 1px 2px rgba(0,0,0,0.6);
   }
-  .art-meta .num { color: var(--gold); margin-right: 8px; }
+  .art-meta .num { color: var(--accent); margin-right: 8px; }
 
   /* ---- illustration style ---- */
   .art.illus-1 { background: linear-gradient(160deg, #f4c896 0%, #e07a5f 50%, #6b4f3a 100%); }
@@ -348,7 +355,7 @@
   }
   .art.abstr-3 {
     background:
-      conic-gradient(from 200deg at 50% 50%, #e0b240, #b03060, #4a30a0, #2a8090, #e0b240);
+      conic-gradient(from 200deg at 50% 50%, #c8fb50, #b03060, #4a30a0, #2a8090, #c8fb50);
     filter: saturate(0.7) contrast(0.9);
   }
   .art.abstr-4 {
@@ -457,7 +464,7 @@
     letter-spacing: -0.012em;
     font-variation-settings: "SOFT" 40;
   }
-  .about-body em { color: var(--gold); font-style: italic; }
+  .about-body em { color: var(--accent); font-style: italic; }
   .about-body p { color: inherit; margin: 0 0 1em 0; }
   .about-body p:last-child { margin-bottom: 0; }
 
@@ -476,7 +483,7 @@
     top: 50%; left: 50%;
     width: 8px; height: 8px;
     border-radius: 50%;
-    background: var(--gold);
+    background: var(--accent);
     transform: translate(-50%, -50%);
     box-shadow:
       0 0 0 2px rgba(224,178,64,0.18),
@@ -489,7 +496,7 @@
     width: 100%;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 1px solid var(--gold);
+    border: 1px solid var(--accent);
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
     animation-name: ringPulse;
@@ -567,7 +574,7 @@
   }
 
   /* ---------------- the work — floating canvas chaos ---------------- */
-  #work { background: #130f22; }
+  #work { background: transparent; }
   .work-header {
     display: flex; align-items: end; justify-content: space-between; gap: 24px;
     margin-bottom: 56px;
@@ -617,7 +624,7 @@
   .anchor-meta { padding: 0 2px; }
   .anchor-meta .tag {
     font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
     transition: opacity 0.3s var(--ease);
   }
   .anchor-meta h3 {
@@ -668,19 +675,19 @@
   }
   .pill:hover { color: var(--ink); border-color: var(--rule-2); }
   .pill.active {
-    background: var(--gold);
+    background: var(--accent);
     color: #14140a;
-    border-color: var(--gold);
+    border-color: var(--accent);
   }
 
   .anchor-more {
-    color: var(--gold); font-size: 13px; letter-spacing: 0.04em;
+    color: var(--accent); font-size: 13px; letter-spacing: 0.04em;
     display: inline-flex; align-items: center; gap: 6px;
     border-bottom: 1px solid rgba(224,178,64,0.4);
     padding-bottom: 2px;
     transition: all 0.2s var(--ease);
   }
-  .anchor-more:hover { border-bottom-color: var(--gold); transform: translateX(2px); }
+  .anchor-more:hover { border-bottom-color: var(--accent); transform: translateX(2px); }
 
   /* chaos (right) */
   .gallery-chaos {
@@ -1508,8 +1515,8 @@
     border-color: rgba(224,178,64,0.5);
     transform: translateY(-2px);
   }
-  .write-card:hover .title { color: var(--gold-2); }
-  .write-card:hover .more { color: var(--gold); }
+  .write-card:hover .title { color: var(--accent-2); }
+  .write-card:hover .more { color: var(--accent); }
 
   /* skeleton + fallback states */
   .write-skeleton {
@@ -1526,18 +1533,18 @@
     display: inline-block;
     width: 8px; height: 8px;
     border-radius: 50%;
-    background: var(--gold);
+    background: var(--accent);
     margin-right: 12px;
     vertical-align: middle;
     animation: writePulse 1.5s ease-in-out infinite;
   }
   .write-skeleton a {
-    color: var(--gold);
+    color: var(--accent);
     border-bottom: 1px solid rgba(224,178,64,0.4);
     padding-bottom: 1px;
     transition: border-color 0.2s var(--ease);
   }
-  .write-skeleton a:hover { border-bottom-color: var(--gold); }
+  .write-skeleton a:hover { border-bottom-color: var(--accent); }
   @keyframes writePulse {
     0%, 100% { opacity: 0.3; transform: scale(0.85); }
     50%      { opacity: 1;   transform: scale(1.15); }
@@ -1550,18 +1557,18 @@
   }
   .write-cta {
     display: inline-flex; align-items: center; gap: 10px;
-    background: var(--gold); color: #14140a;
+    background: var(--accent); color: #14140a;
     font-family: var(--sans); font-weight: 600;
     font-size: 14px; letter-spacing: 0.04em;
     padding: 14px 26px;
     border-radius: 999px;
-    border: 1px solid var(--gold);
+    border: 1px solid var(--accent);
     text-decoration: none;
     transition: background 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
   }
   .write-cta:hover {
-    background: var(--gold-2);
-    border-color: var(--gold-2);
+    background: var(--accent-2);
+    border-color: var(--accent-2);
     transform: translateY(-1px);
     box-shadow: 0 14px 30px -10px rgba(224,178,64,0.5);
   }
@@ -1574,14 +1581,14 @@
   .connect h2 {
     max-width: 800px; margin: 0 auto 28px;
   }
-  .connect h2 em { font-style: italic; color: var(--gold); }
+  .connect h2 em { font-style: italic; color: var(--accent); }
   .connect-line {
     color: var(--ink-2); font-size: 17px; max-width: 560px; margin: 0 auto 40px;
   }
   .connect-mail {
     display: inline-flex; align-items: center; gap: 12px;
     font-family: var(--serif); font-size: clamp(22px, 3vw, 32px);
-    color: var(--gold); padding: 14px 28px;
+    color: var(--accent); padding: 14px 28px;
     border: 1px solid rgba(224,178,64,0.4);
     border-radius: 999px;
     margin-bottom: 48px;
@@ -1589,8 +1596,8 @@
     font-style: italic;
   }
   .connect-mail:hover {
-    background: var(--gold-soft);
-    border-color: var(--gold);
+    background: var(--accent-soft);
+    border-color: var(--accent);
   }
   .socials {
     display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
@@ -1606,9 +1613,9 @@
   }
   .social:hover,
   .social:focus-visible {
-    color: var(--gold);
+    color: var(--accent);
     border-color: rgba(224,178,64,0.55);
-    background: var(--gold-soft);
+    background: var(--accent-soft);
     transform: translateY(-2px);
     outline: none;
   }
@@ -1672,6 +1679,15 @@
     .proj-av .proj-cta:hover{ transform:translateY(-2px); box-shadow:0 16px 42px -12px rgba(255,46,154,.5); }
     .av-secondary{ font-family:var(--sans); font-weight:600; font-size:14px; letter-spacing:.02em; color:var(--av-magenta); text-decoration:none; opacity:.92; transition:opacity .2s; }
     .av-secondary:hover{ opacity:1; }
+    /* Real project wordmarks (replacing serif titles) */
+    .proj-wordmark{ display:flex; justify-content:center; }
+    .proj-wordmark img{ height:auto; display:block; filter:drop-shadow(0 8px 24px rgba(0,0,0,.4)); }
+    .pv-wm img{ width:min(320px,74%); }
+    .bp-wm img{ width:min(360px,78%); }
+    /* Faint geometric diamond texture (banner) — shows through the alang-themed sections only */
+    body::before{ content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='64'%20height='64'%3E%3Cpath%20d='M32%202L62%2032L32%2062L2%2032Z'%20fill='none'%20stroke='rgba(255,255,255,0.5)'%20stroke-width='1'/%3E%3C/svg%3E");
+      background-size:66px 66px; opacity:.028; }
     .proj-av .wrap{ position:relative; z-index:1; }
     .av-wordmark{ width:min(360px,66%); }
     .av-wordmark img{ width:100%; height:auto; display:block; }
@@ -1854,7 +1870,7 @@
     <div class="work-header reveal">
       <div>
         <span class="eyebrow">The work</span>
-        <h2 style="margin-top:18px;">A wall of <em style="font-style:italic;color:var(--gold);">work</em>.</h2>
+        <h2 style="margin-top:18px;">A wall of <em style="font-style:italic;color:var(--accent);">work</em>.</h2>
       </div>
       <div class="note">Hover to lift. Click any piece to bring it forward.</div>
     </div>
@@ -1907,7 +1923,7 @@
         <div class="peevy-stage" aria-hidden="true">
           <canvas id="peevyCanvas"></canvas>
         </div>
-        <h3 class="proj-name">PostVomit</h3>
+        <div class="proj-wordmark pv-wm"><img src="/art/postvomit-wordmark.png" alt="PostVomit"></div>
       </div>
       <!-- content: tagline + CTA -->
       <div class="proj-content">
@@ -1945,7 +1961,7 @@
           <div class="fiend-orbit bottom"> <div><img src="art/fiends/imp-icon.svg"     alt=""></div></div>
           <div class="fiend-orbit left">   <div><img src="art/fiends/death-icon.svg"   alt=""></div></div>
         </div>
-        <h3 class="proj-name">Bad People</h3>
+        <div class="proj-wordmark bp-wm"><img src="/art/bad-people-wordmark-horizontal.png" alt="Bad People"></div>
       </div>
     </div>
   </div>
