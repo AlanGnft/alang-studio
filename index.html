@@ -1752,6 +1752,29 @@
     @media (max-width:900px){ .proj-av{ padding:90px 0; } .av-stage{ max-width:380px; } }
     @media (max-width:600px){ .av-stage{ max-width:300px; } }
     @media (prefers-reduced-motion: reduce){ .av-glow,.av-piece,.av-chip{ animation:none; } .av-piece{ transform:rotate(var(--r,0deg)); } }
+    /* ---- real baked-frame exports (transparent 3D PNGs straight from Aevra's viewer) ---- */
+    .av-real{ position:absolute; animation:avFloat 9s ease-in-out infinite; will-change:transform; }
+    .av-real img{ display:block; width:100%; height:auto; filter:drop-shadow(0 26px 40px rgba(0,0,0,.5)); }
+    .av-r1{ width:62%; left:19%; top:11%; z-index:3; }
+    .av-r2{ width:47%; left:-6%; top:33%; z-index:2; animation-delay:-3s; }
+    .av-r3{ width:45%; right:-7%; top:3%; z-index:1; animation-delay:-5.6s; }
+    /* ---- faded parallax depth field drifting behind the whole section ---- */
+    .av-depthfield{ position:absolute; inset:0; z-index:0; pointer-events:none; }
+    .av-df{ position:absolute; will-change:transform; }
+    .av-df img{ display:block; width:100%; height:auto; animation:avDF 15s ease-in-out infinite; }
+    .av-df-1{ width:min(300px,26vw); left:-5%;  top:6%;    opacity:.13; }
+    .av-df-1 img{ filter:blur(2.5px); animation-delay:-1s; }
+    .av-df-2{ width:min(360px,30vw); right:-7%; bottom:-8%; opacity:.10; }
+    .av-df-2 img{ filter:blur(3.5px); animation-delay:-6s; }
+    .av-df-3{ width:min(210px,18vw); left:11%;  bottom:3%;  opacity:.09; }
+    .av-df-3 img{ filter:blur(2px);   animation-delay:-3.5s; }
+    .av-df-4{ width:min(260px,22vw); right:19%; top:-8%;    opacity:.12; }
+    .av-df-4 img{ filter:blur(3px);   animation-delay:-9s; }
+    .av-df-5{ width:min(180px,16vw); left:39%;  top:45%;    opacity:.07; }
+    .av-df-5 img{ filter:blur(4px);   animation-delay:-12s; }
+    @keyframes avDF{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-16px); } }
+    @media (max-width:900px){ .av-depthfield{ opacity:.55; } .av-df-5{ display:none; } }
+    @media (prefers-reduced-motion: reduce){ .av-real,.av-df img{ animation:none; } }
 </style>
 </head>
 <body>
@@ -1846,6 +1869,13 @@
 <!-- ============== AEVRA — whole-wallet gallery ============== -->
 <section id="aevra" class="proj-section proj-av">
   <img class="av-markbg" src="/art/aevra-mark.svg" alt="" aria-hidden="true">
+  <div class="av-depthfield" aria-hidden="true">
+    <div class="av-df av-df-1" data-d="30"><img src="/art/aevra/frame-2.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="av-df av-df-2" data-d="54"><img src="/art/aevra/frame-5.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="av-df av-df-3" data-d="18"><img src="/art/aevra/frame-4.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="av-df av-df-4" data-d="40"><img src="/art/aevra/frame-1.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="av-df av-df-5" data-d="24"><img src="/art/aevra/frame-3.webp" alt="" loading="lazy" decoding="async"></div>
+  </div>
   <div class="wrap">
     <div class="proj-row reveal">
       <!-- content (LEFT on desktop) -->
@@ -1872,9 +1902,9 @@
       <div class="proj-visual">
         <div class="av-stage" aria-label="Aevra — real pieces from an on-chain collection, in Aevra frames">
           <div class="av-glow" aria-hidden="true"></div>
-          <div class="av-piece av-p-opal" aria-hidden="true"><div class="av-mat"><img src="https://wsrv.nl/?url=https%3A%2F%2Fcdn.helius-rpc.com%2Fcdn-cgi%2Fimage%2F%2Fhttps%3A%2F%2Farweave.net%2FvOz_IxgFktW51wFJW8qnOXLZx79gKxifKbQHcGZs2mk%3Fext%3Dpng&w=600&h=680&fit=cover&output=webp&q=82" alt="" loading="eager" decoding="async"></div></div>
-          <div class="av-piece av-p-aevra" aria-hidden="true"><div class="av-mat"><img src="https://wsrv.nl/?url=https%3A%2F%2Fcdn.helius-rpc.com%2Fcdn-cgi%2Fimage%2F%2Fhttps%3A%2F%2Farweave.net%2Fp8obcR0TgFWFMTfjlAlvG8PaWPju2Ryzfct-wTstqxA%3Fext%3Djpg&w=600&h=680&fit=cover&output=webp&q=82" alt="" loading="eager" decoding="async"></div></div>
-          <div class="av-piece av-p-aurora" aria-hidden="true"><div class="av-mat"><img src="https://wsrv.nl/?url=https%3A%2F%2Fcdn.helius-rpc.com%2Fcdn-cgi%2Fimage%2F%2Fhttps%3A%2F%2Farweave.net%2Ft3PK0orqly28SRYpyInojVE9N5fiNGBr5UXDNgz7nkE%3Fext%3Dpng&w=600&h=680&fit=cover&output=webp&q=82" alt="" loading="eager" decoding="async"></div></div>
+          <div class="av-real av-r3" aria-hidden="true"><img src="/art/aevra/frame-4.webp" alt="" loading="eager" decoding="async"></div>
+          <div class="av-real av-r2" aria-hidden="true"><img src="/art/aevra/frame-3.webp" alt="" loading="eager" decoding="async"></div>
+          <div class="av-real av-r1" aria-hidden="true"><img src="/art/aevra/frame-1.webp" alt="" loading="eager" decoding="async"></div>
           <div class="av-chip av-c-sol" aria-hidden="true"><span class="av-dot"></span>Solana</div>
           <div class="av-chip av-c-eth" aria-hidden="true"><span class="av-dot"></span>Ethereum</div>
           <div class="av-chip av-c-tez" aria-hidden="true"><span class="av-dot"></span>Tezos</div>
@@ -2623,6 +2653,28 @@
 
   // ----------------- year stamp -----------------
   document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+<script>
+/* Aevra section — faded frame depth field: scroll + pointer parallax by per-item depth */
+(function(){
+  var sec=document.getElementById('aevra'); if(!sec) return;
+  var items=[].slice.call(sec.querySelectorAll('.av-df')); if(!items.length) return;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var mx=0, my=0, ticking=false;
+  function apply(){ ticking=false;
+    var r=sec.getBoundingClientRect(), vh=window.innerHeight||1;
+    var prog=(r.top + r.height/2 - vh/2)/vh;
+    for(var i=0;i<items.length;i++){ var el=items[i], d=parseFloat(el.getAttribute('data-d'))||16;
+      var py=-prog*d*2.6 + my*d*0.5, px=mx*d*0.8;
+      el.style.transform='translate3d('+px.toFixed(1)+'px,'+py.toFixed(1)+'px,0)';
+    }
+  }
+  function req(){ if(!ticking){ ticking=true; requestAnimationFrame(apply); } }
+  window.addEventListener('scroll', req, {passive:true});
+  window.addEventListener('resize', req, {passive:true});
+  window.addEventListener('mousemove', function(e){ mx=(e.clientX/(window.innerWidth||1)-0.5)*2; my=(e.clientY/(window.innerHeight||1)-0.5)*2; req(); }, {passive:true});
+  apply();
+})();
 </script>
 
 </body>
