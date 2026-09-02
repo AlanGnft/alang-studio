@@ -40,7 +40,7 @@
 <link rel="preload" as="image" href="/art/dead-2024.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,30..100&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   /* ---------------- design tokens ---------------- */
   :root {
@@ -60,7 +60,7 @@
     --lime: #c8fb50;
     --crimson: #dc2626;
     --navy-bp: #0a1a3a;
-    --serif: "Fraunces", "Times New Roman", serif;
+    --serif: "Newsreader", "Georgia", "Times New Roman", serif;
     --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --mono: "JetBrains Mono", ui-monospace, monospace;
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -1681,6 +1681,17 @@
     .proj-av .proj-cta:hover{ transform:translateY(-2px); box-shadow:0 16px 42px -12px rgba(255,46,154,.5); }
     .av-secondary{ font-family:var(--sans); font-weight:600; font-size:14px; letter-spacing:.02em; color:var(--av-magenta); text-decoration:none; opacity:.92; transition:opacity .2s; }
     .av-secondary:hover{ opacity:1; }
+    /* Generative facet field — echoes Aevra's generative PFPs (prismatic shards, screen-blended) */
+    .gen-field{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+    .gshard{ position:absolute; mix-blend-mode:screen; opacity:.5; filter:blur(3px); border-radius:6px; animation:gDrift 20s ease-in-out infinite; will-change:transform; }
+    .gshard.soft{ filter:blur(30px); opacity:.42; }
+    .gshard.tri{ clip-path:polygon(50% 0,100% 100%,0 100%); border-radius:0; }
+    .gshard.shard{ clip-path:polygon(22% 0,100% 28%,74% 100%,0 62%); border-radius:0; }
+    .gshard.quad{ clip-path:polygon(0 16%,84% 0,100% 84%,18% 100%); border-radius:0; }
+    @keyframes gDrift{ 0%,100%{ transform:translate(0,0) rotate(var(--r,0deg)) scale(1); } 50%{ transform:translate(var(--dx,12px),var(--dy,-16px)) rotate(calc(var(--r,0deg) + 9deg)) scale(1.05); } }
+    .hero .wrap, #about .wrap{ position:relative; z-index:2; }
+    @media (prefers-reduced-motion: reduce){ .gshard{ animation:none; } }
+    @media (max-width:720px){ .gen-field{ opacity:.7; } .gen-field .hide-sm{ display:none; } }
     /* Real project wordmarks (replacing serif titles) */
     .proj-wordmark{ display:flex; justify-content:center; }
     .proj-wordmark img{ height:auto; display:block; filter:drop-shadow(0 8px 24px rgba(0,0,0,.4)); }
@@ -1751,6 +1762,7 @@
 
 <!-- ============== HERO ============== -->
 <section class="hero" id="top">
+  <div class="gen-field" aria-hidden="true"><div class="gshard shard" style="width:300px;height:300px;top:8%;right:6%;background:linear-gradient(135deg,#a03be0,#7fe3ff);--r:-8deg;--dx:16px;--dy:-20px;"></div><div class="gshard tri" style="width:200px;height:210px;top:44%;right:22%;background:linear-gradient(135deg,#ff2e9a,#ff8a3c);--r:14deg;--dx:-14px;--dy:14px;opacity:.42;"></div><div class="gshard quad hide-sm" style="width:170px;height:170px;top:20%;right:32%;background:linear-gradient(135deg,#c8fb50,#2fd6c4);--r:6deg;--dx:12px;--dy:16px;opacity:.4;"></div><div class="gshard soft" style="width:360px;height:360px;top:26%;right:0%;background:radial-gradient(circle at 40% 40%,#7fe3ff,transparent 70%);--r:0deg;--dx:20px;--dy:-10px;"></div><div class="gshard soft" style="width:320px;height:320px;top:2%;right:26%;background:radial-gradient(circle at 60% 40%,#a03be0,transparent 70%);--r:0deg;--dx:-16px;--dy:18px;"></div><div class="gshard shard hide-sm" style="width:130px;height:130px;top:62%;right:12%;background:linear-gradient(135deg,#7fe3ff,#c8fb50);--r:20deg;--dx:10px;--dy:-12px;opacity:.45;"></div><div class="gshard soft hide-sm" style="width:260px;height:260px;top:58%;right:30%;background:radial-gradient(circle at 50% 50%,#ff2e9a,transparent 72%);--r:0deg;--dx:14px;--dy:14px;opacity:.34;"></div></div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-text">
@@ -1798,6 +1810,7 @@
 
 <!-- ============== ABOUT ============== -->
 <section id="about">
+  <div class="gen-field" aria-hidden="true" style="opacity:.72;"><div class="gshard soft" style="width:340px;height:340px;top:10%;left:-4%;background:radial-gradient(circle at 50% 50%,#a03be0,transparent 72%);--r:0deg;--dx:16px;--dy:-14px;opacity:.32;"></div><div class="gshard shard hide-sm" style="width:180px;height:180px;top:22%;right:8%;background:linear-gradient(135deg,#2fd6c4,#c8fb50);--r:-10deg;--dx:-12px;--dy:16px;opacity:.36;"></div><div class="gshard soft" style="width:300px;height:300px;bottom:6%;right:-2%;background:radial-gradient(circle at 50% 50%,#ff2e9a,transparent 72%);--r:0deg;--dx:-14px;--dy:-16px;opacity:.28;"></div><div class="gshard tri hide-sm" style="width:150px;height:160px;bottom:16%;left:10%;background:linear-gradient(135deg,#7fe3ff,#a03be0);--r:16deg;--dx:12px;--dy:14px;opacity:.34;"></div></div>
   <div class="wrap">
     <div class="about-grid">
       <div class="reveal">
