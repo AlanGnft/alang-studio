@@ -1695,18 +1695,18 @@
     .hero-lead{ display:grid; grid-template-columns:auto auto; grid-template-areas:"pfp name" "alt name"; align-items:start; column-gap:clamp(26px,4vw,50px); row-gap:14px; }
     .hero-lead .hero-pfp{ grid-area:pfp; width:clamp(150px,17vw,215px); height:clamp(150px,17vw,215px); margin-bottom:0; align-self:start; }
     .hero-lead .role-stack{ grid-area:alt; align-self:start; justify-self:center; }
-    .hero-lead .hero-name{ grid-area:name; align-self:start; margin:-0.06em 0 0 0; text-align:left; }
+    .hero-lead .hero-name{ grid-area:name; align-self:center; margin:0; text-align:left; }
     .hero-tag{ text-align:center; margin:clamp(24px,3.2vw,34px) auto 0; }
     .hero-ctas{ justify-content:center; margin-top:clamp(28px,3.6vw,40px); }
     @media (max-width:760px){
-      .hero-lead{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px; }
-      .hero-lead .hero-pfp{ order:0; width:104px; height:104px; }
-      .hero-lead .hero-name{ order:1; text-align:center; margin:0; }
-      .hero-lead .role-stack{ order:2; }
-      .hero-name{ font-size:clamp(52px,15vw,88px); }
-      .hero-tag{ margin-top:20px; }
-      .hero-ctas{ margin-top:22px; }
+      .hero-lead{ column-gap:clamp(14px,4vw,22px); row-gap:8px; justify-content:center; }
+      .hero-lead .hero-pfp{ width:clamp(84px,25vw,120px); height:clamp(84px,25vw,120px); }
+      .hero-lead .hero-name{ align-self:center; }
+      .hero-name{ font-size:clamp(44px,14vw,84px); }
+      .hero-tag{ margin-top:22px; }
+      .hero-ctas{ margin-top:24px; }
     }
+    @media (max-width:360px){ .hero-name{ font-size:40px; } .hero-lead .hero-pfp{ width:78px; height:78px; } }
     .hero-pfp img{ width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; background:var(--canvas-2); }
     @media (prefers-reduced-motion: reduce){ .gshard{ animation:none; } }
     @media (max-width:720px){ .gen-field .hide-sm{ display:none; } .hero-pfp{ width:88px; height:88px; } }
@@ -1760,11 +1760,6 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="#top" class="nav-mark">
-      <span class="dot" aria-hidden="true">
-        <span class="r r1"></span>
-        <span class="r r2"></span>
-        <span class="r r3"></span>
-      </span>
       <span>Alan Geleff</span>
     </a>
     <div class="nav-links">
