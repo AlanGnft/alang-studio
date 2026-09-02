@@ -1691,6 +1691,18 @@
     .hero-pfp{ display:inline-block; width:112px; height:112px; border-radius:50%; padding:3px; margin-bottom:22px;
       background:linear-gradient(135deg,#c8fb50,#2fd6c4 45%,#a03be0); box-shadow:0 14px 40px -12px rgba(0,0,0,.6); transition:transform .25s var(--ease); }
     .hero-pfp:hover{ transform:translateY(-2px) scale(1.03); }
+    .hero-grid{ display:flex; flex-direction:column; align-items:center; }
+    .hero-lead{ display:flex; align-items:center; gap:clamp(24px,4vw,48px); max-width:960px; }
+    .hero-lead .hero-text{ text-align:left; min-width:0; }
+    .hero-lead .hero-pfp{ width:clamp(150px,17vw,210px); height:clamp(150px,17vw,210px); margin-bottom:0; flex:0 0 auto; }
+    .hero-ctas{ justify-content:center; margin-top:clamp(30px,4vw,44px); }
+    @media (max-width:760px){
+      .hero-lead{ flex-direction:column; align-items:center; text-align:center; gap:16px; }
+      .hero-lead .hero-text{ text-align:center; }
+      .hero-lead .hero-pfp{ width:104px; height:104px; }
+      .hero-name{ font-size:clamp(52px,15vw,88px); margin-bottom:12px; }
+      .hero-ctas{ margin-top:24px; }
+    }
     .hero-pfp img{ width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; background:var(--canvas-2); }
     @media (prefers-reduced-motion: reduce){ .gshard{ animation:none; } }
     @media (max-width:720px){ .gen-field .hide-sm{ display:none; } .hero-pfp{ width:88px; height:88px; } }
@@ -1767,8 +1779,9 @@
   <div class="gen-field" aria-hidden="true"><div class="gshard " style="width:420px;height:420px;top:0%;right:2%;--r:16deg;--dx:14px;--dy:-14px;filter:blur(60px);opacity:.5;background:radial-gradient(circle at 45% 40%,#a03be0,transparent 68%);"></div><div class="gshard " style="width:380px;height:380px;top:34%;right:20%;--r:-12deg;--dx:-12px;--dy:16px;filter:blur(66px);opacity:.46;background:radial-gradient(circle at 55% 45%,#3fe0cf,transparent 68%);"></div><div class="gshard " style="width:300px;height:300px;top:44%;right:2%;--r:0deg;--dx:12px;--dy:-10px;filter:blur(60px);opacity:.4;background:radial-gradient(circle at 50% 50%,#ff2e9a,transparent 70%);"></div><div class="gshard solid" style="width:250px;height:250px;top:8%;right:8%;--r:15deg;--dx:12px;--dy:-14px;filter:blur(4px);opacity:.5;background:linear-gradient(135deg,#a03be0,#7fe3ff);"></div><div class="gshard solid" style="width:220px;height:220px;top:24%;right:26%;--r:-10deg;--dx:-10px;--dy:14px;filter:blur(5px);opacity:.42;background:linear-gradient(135deg,#1c7a70,#3fe0cf);"></div><div class="gshard solid" style="width:200px;height:200px;top:40%;right:12%;--r:22deg;--dx:12px;--dy:12px;filter:blur(4px);opacity:.5;background:linear-gradient(135deg,#ff2e9a,#a35fe0);"></div><div class="gshard solid" style="width:160px;height:160px;top:16%;right:34%;--r:-18deg;--dx:10px;--dy:-10px;filter:blur(3px);opacity:.46;background:linear-gradient(135deg,#7fe3ff,#3fe0cf);"></div><div class="gshard solid" style="width:150px;height:150px;top:56%;right:24%;--r:12deg;--dx:-8px;--dy:12px;filter:blur(6px);opacity:.44;background:linear-gradient(135deg,#5a2b7a,#a35fe0);"></div><div class="gshard solid" style="width:104px;height:104px;top:30%;right:18%;--r:20deg;--dx:8px;--dy:-8px;filter:blur(1px);opacity:.62;background:linear-gradient(135deg,#c8fb50,#3fe0cf);"></div><div class="gshard solid" style="width:84px;height:84px;top:58%;right:9%;--r:-16deg;--dx:-6px;--dy:10px;filter:blur(1px);opacity:.58;background:linear-gradient(135deg,#a35fe0,#ff2e9a);"></div><div class="gshard solid" style="width:70px;height:70px;top:10%;right:22%;--r:26deg;--dx:8px;--dy:8px;filter:blur(0px);opacity:.6;background:linear-gradient(135deg,#7fe3ff,#3fe0cf);"></div></div>
   <div class="wrap">
     <div class="hero-grid">
-      <div class="hero-text">
+      <div class="hero-lead">
         <a class="hero-pfp" href="https://x.com/alangstudio" target="_blank" rel="noopener" title="@alangstudio on X"><img src="https://unavatar.io/x/alangstudio" alt="Alan Geleff" loading="eager" onerror="this.onerror=null;this.src='/apple-touch-icon.png'"></a>
+        <div class="hero-text">
         <div class="hero-byline">
           <span class="gold-dot"></span>
           <em>Creator Ecosystem Lead at DRiP</em>
@@ -1789,8 +1802,9 @@
         <p class="hero-tag">
           Building tools, communities, and games that make this world feel a little more alive.
         </p>
-
-        <div class="hero-ctas">
+        </div>
+      </div>
+      <div class="hero-ctas">
           <a href="https://byimprint.studio" class="btn primary">
             Work with me
             <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
@@ -1801,7 +1815,6 @@
           </a>
           <a href="#connect" class="btn">Get in touch</a>
         </div>
-      </div>
 
     </div>
   </div>
@@ -1813,7 +1826,7 @@
 
 <!-- ============== ABOUT ============== -->
 <section id="about">
-  <div class="gen-field" aria-hidden="true" style="opacity:.9;"><div class="gshard " style="width:360px;height:360px;top:2%;left:-6%;--r:18deg;--dx:14px;--dy:-12px;filter:blur(60px);opacity:.4;background:radial-gradient(circle at 50% 50%,#a03be0,transparent 70%);"></div><div class="gshard " style="width:320px;height:320px;bottom:-2%;right:-4%;--r:0deg;--dx:-12px;--dy:14px;filter:blur(60px);opacity:.36;background:radial-gradient(circle at 50% 50%,#3fe0cf,transparent 70%);"></div><div class="gshard solid" style="width:180px;height:180px;top:22%;right:6%;--r:16deg;--dx:12px;--dy:14px;filter:blur(5px);opacity:.4;background:linear-gradient(135deg,#a03be0,#7fe3ff);"></div><div class="gshard solid" style="width:120px;height:120px;top:34%;right:16%;--r:-18deg;--dx:-8px;--dy:-10px;filter:blur(2px);opacity:.5;background:linear-gradient(135deg,#7fe3ff,#3fe0cf);"></div><div class="gshard solid" style="width:88px;height:88px;bottom:20%;left:10%;--r:16deg;--dx:8px;--dy:12px;filter:blur(1px);opacity:.5;background:linear-gradient(135deg,#c8fb50,#3fe0cf);"></div></div>
+  <div class="gen-field" aria-hidden="true" style="opacity:0.12;"><div class="gshard " style="width:360px;height:360px;top:2%;left:-6%;--r:18deg;--dx:14px;--dy:-12px;filter:blur(116px);opacity:0.12;background:radial-gradient(circle at 50% 50%,#a03be0,transparent 70%);"></div><div class="gshard " style="width:320px;height:320px;bottom:-2%;right:-4%;--r:0deg;--dx:-12px;--dy:14px;filter:blur(116px);opacity:0.19;background:radial-gradient(circle at 50% 50%,#3fe0cf,transparent 70%);"></div><div class="gshard solid" style="width:180px;height:180px;top:22%;right:6%;--r:16deg;--dx:12px;--dy:14px;filter:blur(17px);opacity:0.12;background:linear-gradient(135deg,#a03be0,#7fe3ff);"></div><div class="gshard solid" style="width:120px;height:120px;top:34%;right:16%;--r:-18deg;--dx:-8px;--dy:-10px;filter:blur(11px);opacity:0.12;background:linear-gradient(135deg,#7fe3ff,#3fe0cf);"></div><div class="gshard solid" style="width:88px;height:88px;bottom:20%;left:10%;--r:16deg;--dx:8px;--dy:12px;filter:blur(9px);opacity:0.12;background:linear-gradient(135deg,#c8fb50,#3fe0cf);"></div></div>
   <div class="wrap">
     <div class="about-grid">
       <div class="reveal">
