@@ -1722,8 +1722,8 @@
     .proj-av .wrap{ position:relative; z-index:1; }
     .av-wordmark{ width:min(360px,66%); }
     .av-wordmark img{ width:100%; height:auto; display:block; }
-    .av-markbg{ position:absolute; right:-13%; top:50%; transform:translateY(-50%); width:min(920px,82%); opacity:.08; z-index:0; pointer-events:none; user-select:none; }
-    @media (max-width:900px){ .av-wordmark{ width:min(300px,72%); } .av-markbg{ width:min(560px,92%); right:-20%; opacity:.06; } }
+    .av-markbg{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:min(920px,82%); opacity:.08; z-index:0; pointer-events:none; user-select:none; }
+    @media (max-width:900px){ .av-wordmark{ width:min(300px,72%); } .av-markbg{ width:min(560px,92%); opacity:.06; } }
     /* ---- visual stage: real art in faithful frame replicas ---- */
     .av-stage{ position:relative; width:100%; max-width:460px; aspect-ratio:1/1; margin:0 auto; }
     .av-glow{ position:absolute; inset:4%; border-radius:50%; background:radial-gradient(circle at 52% 42%, rgba(255,46,154,.28), rgba(160,59,224,.20) 44%, rgba(255,138,60,.10) 66%, transparent 74%); filter:blur(30px); animation:avBreathe 8s ease-in-out infinite; }
